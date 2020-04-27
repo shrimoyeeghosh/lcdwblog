@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h2>This is the results of your search.</h2>
+{% for result in queryset %}
+<div class="post col-xl-6">
+  <div class="post-thumbnail"><a href="{{ result.get_absolute_url }}"><img src="{{ result.thumbnail.url }}" alt="..." class="img-fluid"></a></div>
+  <div class="post-details">
+    <div class="post-meta d-flex justify-content-between">
+      <div class="date meta-last">20 May | 2016</div>
+      {% for cat in result.categories.all %}
+      <div class="category"><a href="#">{{ cat }}</a></div>
+      {% endfor %}
+    </div><a href="{{ result.get_absolute_url }}">
+      <h3 class="h4">{{ result.title }}</h3></a>
+    <p class="text-muted">{{ result.content }}</p>
+    <footer class="post-footer d-flex align-items-center">
+      <a href="#" class="author d-flex align-items-center flex-wrap">
+        <div class="title"><span>{{ result.author }}</span></div></a>
+      <div class="date"><i class="icon-clock"></i>{{ result.timestamp|timesince }} ago</div>
+    </footer>
+  </div>
+</div>
+{% endfor %}
+
+<!-- Pagination -->
+<nav aria-label="Page navigation example">
+<ul class="pagination pagination-template d-flex justify-content-center">
+  {% if queryset.has_previous %}
+  <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+  {% endif %}
+  <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.number }}" class="page-link ">{{ queryset.number }}</a></li>
+  {% if queryset.has_next %}
+  <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+  {% endif %}
+</ul>
+</nav>
+
+{% endblock content %}
