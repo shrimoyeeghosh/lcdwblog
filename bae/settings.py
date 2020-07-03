@@ -13,7 +13,7 @@ SECRET_KEY = 'czeq7%8d*e-0owsla&63#$due!4uc-h^x&+=o^is5kus@0f8)#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['djlcdwblog.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '68.183.85.122']
 
 
 # Application definition
@@ -69,9 +69,9 @@ WSGI_APPLICATION = 'bae.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'blogblob'),
-        'USER': os.environ.get('DB_USER', 'blob'),
-        'PASSWORD': os.environ.get('DB_PASS', 'blobblob'),
+        'NAME': 'blogdb',
+        'USER': 'pakhi',
+        'PASSWORD': 'pakhio123',
         'HOST': 'localhost',
         'PORT': '',
     }
