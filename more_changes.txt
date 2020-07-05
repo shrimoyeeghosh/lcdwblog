@@ -1,0 +1,7 @@
+TO DO TO DO TO DO TO DO TO DO DO DO DO DOOOOOOOOO
+
+1) The header Images
+2) The bug where it redirects to the top of the page instead of the blog
+3) The bug where the goddamned categories tag doesnt show up
+4) The feature which I'm definitely sure cause complications later where I can't add images inside the text are in admin. Or even if I do. It looks hella weird.
+5) Remove subscribe to newsletter.
